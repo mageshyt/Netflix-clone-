@@ -1,51 +1,19 @@
-import "./App.css";
-import Banner from "./components/Banner";
-import Header from "./components/Header";
-import MoviesContainer from "./components/MoviesContainer";
-import requests from "../src/requests";
+import "./styles/App.css";
+import { Routes, Route } from "react-router-dom";
+
+import HomePage from "./Page/HomePage";
+import MovieInfoPage from "./Page/MovieInfoPage";
 function App() {
   return (
     <div className="App h-full">
-      <Header />
-      {/* banner */}
-      <div className="center mr-2 ml-2">
-        <Banner />
-      </div>
-      {/* Movie container */}
-      <main className="max-w-6xl mt-5 mx-auto">
-        <section className="pt-6">
-          {/* <MoviesContainer title="My List" /> */}
-          <MoviesContainer
-            isLargeRow
-            title="Netflix Originals"
-            fetchUrl={requests.fetchNetflixOriginals}
-          />
-          <MoviesContainer
-            title="Trending now"
-            fetchUrl={requests.fetchTrending}
-          />
-          <MoviesContainer
-            title="Top Rated"
-            fetchUrl={requests.fetchTopRated}
-          />
-          <MoviesContainer
-            title="Action Movies"
-            fetchUrl={requests.fetchActionMovies}
-          />
-          <MoviesContainer
-            title="Comedy Movies"
-            fetchUrl={requests.fetchComedyMovies}
-          />
-          <MoviesContainer
-            title="Horror Movies"
-            fetchUrl={requests.fetchHorrorMovies}
-          />
-          <MoviesContainer
-            title="Romance Movies"
-            fetchUrl={requests.fetchRomanceMovies}
-          />
-        </section>
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route
+          className="home"
+          path="/info"
+          element={<MovieInfoPage />}
+        ></Route>
+      </Routes>
     </div>
   );
 }

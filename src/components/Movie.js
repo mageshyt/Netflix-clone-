@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { MovieData } from "../assets/moviedata";
 
 //! baseURL
 const base_url = "https://image.tmdb.org/t/p/original/";
 const Movie = ({ movies, isLargeRow }) => {
   return (
-    <Container className="">
-      <ScrollContainer className="center  overflow-x-scroll overflow-y-auto p-5">
+    <Container>
+      <ScrollContainer className="posters">
+        {/* <div className="row__posters"> */}
         {movies.map((movie) => (
           <img
             key={movie.id}
@@ -18,6 +20,7 @@ const Movie = ({ movies, isLargeRow }) => {
             alt={movie.name}
           />
         ))}
+        {/* </div> */}
       </ScrollContainer>
     </Container>
   );
@@ -26,8 +29,25 @@ const Movie = ({ movies, isLargeRow }) => {
 export default Movie;
 
 const Container = styled.div`
+  .row {
+    margin-left: 20px;
+    color: white;
+  }
   img {
     border-radius: 10px;
+    cursor: pointer;
+  }
+  .scrollContainer {
+    width: 50%;
+  }
+  .posters {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 20px;
+  }
+  .posters::-webkit-scrollbar {
+    display: none;
   }
   .poster {
     object-fit: contain;
@@ -36,10 +56,6 @@ const Container = styled.div`
     transition: transform 450ms;
     margin-right: 10px;
   }
-  .posters::-webkit-scrollbar {
-    display: none;
-  }
-
   .poster:hover {
     transform: scale(1.08);
   }

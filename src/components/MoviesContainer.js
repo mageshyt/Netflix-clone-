@@ -10,7 +10,7 @@ const MoviesContainer = ({ title, fetchUrl, isLargeRow = false }) => {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-      setMovies(request.data.results.splice(1));
+      setMovies(request.data.results);
     }
     fetchData();
   }, [fetchUrl]);
