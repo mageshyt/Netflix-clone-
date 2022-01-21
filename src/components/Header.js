@@ -8,7 +8,7 @@ const Header = () => {
       <div>
         <img
           src="/images/logo.png"
-          className="h-32 object-contain w-32"
+          className="h-32 cursor-pointer object-contain w-32"
           alt=""
         />
       </div>
@@ -35,7 +35,7 @@ const Header = () => {
       </div>
       {/* search */}
       <div className="flex items-center space-x-3 p-4  md:mr-4 ">
-        <SearchIcon className="logo-white font-light hidden md:inline-block" />
+        <SearchIcon className="logo-white cursor-pointer font-light hidden md:inline-block" />
         {/* bell button */}
         <div className="relative">
           <span
@@ -43,11 +43,10 @@ const Header = () => {
         absolute inline-flex h-2 left-4  w-2 rounded-full 
         bg-red-500 "
           ></span>
-          <BellIcon className="logo-white" />
+          <BellIcon className="logo-white cursor-pointer" />
         </div>
       </div>
     </div>
   );
 };
-
 export default Header;
