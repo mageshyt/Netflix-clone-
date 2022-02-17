@@ -8,11 +8,7 @@ function App() {
     <div className="App h-full">
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route
-          className="home"
-          path="/info"
-          element={<MovieInfoPage />}
-        ></Route>
+        <Route path="/info" element={<MovieInfoPage />}></Route>
       </Routes>
     </div>
   );

@@ -30,3 +30,15 @@ body {
     @apply hover:scale-105 transform transition-all ease-in-out duration-200;
   }
 }
+
+
+.moviePage{
+    background-image: linear-gradient(
+    to left top,
+    #0f0c0d,
+    #140e13,
+    #15111a,
+    #101521,
+    #031926
+  );
+}

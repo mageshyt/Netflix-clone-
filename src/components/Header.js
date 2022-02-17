@@ -1,7 +1,9 @@
 import React from "react";
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const naviagte = useNavigate();
   return (
     <div className="flex items-center h-24 justify-between">
       {/* logo */}
@@ -10,6 +12,7 @@ const Header = () => {
           src="/images/logo.png"
           className="h-32 cursor-pointer object-contain w-32"
           alt=""
+          onClick={() => naviagte("/")}
         />
       </div>
       {/* sections in desktop view */}
@@ -39,7 +42,7 @@ const Header = () => {
         {/* bell button */}
         <div className="relative">
           <span
-            class="
+            className="
         absolute inline-flex h-2 left-4  w-2 rounded-full 
         bg-red-500 "
           ></span>
