@@ -12,4 +12,3 @@ import rootReducer from "./root.reducer";
 const middleware = [logger];
 export const store = createStore(rootReducer, applyMiddleware(...middleware));
 export const persister = persistStore(store); // ! to store the data in browser
-export default { store, persister };

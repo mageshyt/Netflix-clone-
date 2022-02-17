@@ -18,7 +18,7 @@ body {
     @apply h-6 w-6 text-white;
   }
   .section-items {
-    @apply text-sm text-gray-300 cursor-pointer
+    @apply text-lg text-gray-300 cursor-pointer
     transform font-bold hover:text-purple-600  hover:scale-125 transition-all 
    ease-in-out duration-150;
   }
@@ -31,9 +31,8 @@ body {
   }
 }
 
-
-.moviePage{
-    background-image: linear-gradient(
+.moviePage {
+  background-image: linear-gradient(
     to left top,
     #0f0c0d,
     #140e13,
