@@ -1,23 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import ScrollContainer from "react-indiana-drag-scroll";
-import { MovieData } from "../assets/moviedata";
+import { connect } from "react-redux";
+import { selectedMovie } from "../Redux/movie/movie.action";
+import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 //! baseURL
 const base_url = "https://image.tmdb.org/t/p/original/";
-const Movie = ({ movies, isLargeRow }) => {
+const Movie = ({ movies, isLargeRow, setCurrentMovie }) => {
+  let navigate = useNavigate();
+
+  const handleClick = (movie) => {
+    setCurrentMovie(movie);
+    navigate("/info");
+  };
   return (
     <Container>
-      <ScrollContainer className="posters">
+      <ScrollContainer className="posters scroll-smooth">
         {/* <div className="row__posters"> */}
+
         {movies.map((movie) => (
-          <img
+          // ! Right side component
+
+          <LazyLoadImage
+            onClick={() => handleClick(movie)}
             key={movie.id}
-            className={`poster ${isLargeRow && "posterLarge"}`} //use && if theres no else or : otherwise use ?
+            className={`poster  ${isLargeRow && "hidden posterLarge"}`} //use && if theres no else or : otherwise use ?
             src={`${base_url}${
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
             alt={movie.name}
+            height="300px"
           />
         ))}
         {/* </div> */}
@@ -25,8 +39,10 @@ const Movie = ({ movies, isLargeRow }) => {
     </Container>
   );
 };
-
-export default Movie;
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentMovie: (movie) => dispatch(selectedMovie(movie)),
+});
+export default connect(null, mapDispatchToProps)(Movie);
 
 const Container = styled.div`
   .row {
@@ -50,7 +66,7 @@ const Container = styled.div`
     display: none;
   }
   .poster {
-    object-fit: contain;
+    /* object-fit: contain; */
     width: 100%;
     max-height: 100px;
     transition: transform 450ms;

@@ -3,17 +3,15 @@ import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./Page/HomePage";
 import MovieInfoPage from "./Page/MovieInfoPage";
+import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="App h-full">
+    <div className=" h-screen overflow-y--scroll">
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route
-          className="home"
-          path="/info"
-          element={<MovieInfoPage />}
-        ></Route>
+        <Route path="/info" element={<MovieInfoPage />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

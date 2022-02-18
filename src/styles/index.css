@@ -9,6 +9,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    to left top,
+    #0f0c0d,
+    #140e13,
+    #15111a,
+    #101521,
+    #031926
+  );
 }
 @layer components {
   .center {
@@ -18,7 +26,7 @@ body {
     @apply h-6 w-6 text-white;
   }
   .section-items {
-    @apply text-sm text-gray-300 cursor-pointer
+    @apply text-lg text-gray-300 cursor-pointer
     transform font-bold hover:text-purple-600  hover:scale-125 transition-all 
    ease-in-out duration-150;
   }
@@ -29,4 +37,15 @@ body {
   .img-hover {
     @apply hover:scale-105 transform transition-all ease-in-out duration-200;
   }
+}
+
+.moviePage {
+  background-image: linear-gradient(
+    to left top,
+    #0f0c0d,
+    #140e13,
+    #15111a,
+    #101521,
+    #031926
+  );
 }

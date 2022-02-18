@@ -7,8 +7,8 @@ const Banner = () => {
       <div className="image-container flex-wrap w-full h-full    relative rounded-xl">
         <img
           className="w-full h-full  object-cover rounded-lg"
-          src="/images/banner-1.jpg"
-          alt=""
+          src="/images/banner-1-min.jpg"
+          alt={"banner"}
         />
         {/* div with watch now button */}
         <div className="flex justify-center  top-2/3   w-full absolute mt-4">
