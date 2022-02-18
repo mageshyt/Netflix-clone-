@@ -9,6 +9,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    to left top,
+    #0f0c0d,
+    #140e13,
+    #15111a,
+    #101521,
+    #031926
+  );
 }
 @layer components {
   .center {

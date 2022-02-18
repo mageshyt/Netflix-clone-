@@ -27,16 +27,7 @@ const MovieInfoPage = ({ movie }) => {
   // ! for like and trailer
   const [like, setLike] = React.useState(false);
   const [playVideo, setPlayVideo] = React.useState(false);
-  // cover number
-  const numberWithCommas = (x) => {
-    if (x > 1000) {
-      return (x / 1000).toFixed(1) + "k";
-    } else if (x > 1000 * 1000) {
-      return (x / (1000 * 1000)).toFixed(1) + "m";
-    } else {
-      return x / 100;
-    }
-  };
+
   return (
     <div className="h-screen overflow-y-scroll select-none  moviePage">
       <Header />
@@ -48,7 +39,7 @@ const MovieInfoPage = ({ movie }) => {
             {movie?.original_title || movie?.name}
           </span>
           {/* overview */}
-          <p className="text-md text-gray-500 w-full mt-2 text-center">
+          <p className="text-md text-gray-500 w-full mb-2 mt-2 text-center">
             {movie?.overview}
           </p>
         </div>
@@ -76,7 +67,7 @@ const MovieInfoPage = ({ movie }) => {
               <AiFillPlayCircle className="text-gray-600  text-2xl" />
             </div>
             {/* like */}
-            <div onClick={() => setLike(!like)}>
+            <div className="center flex-col" onClick={() => setLike(!like)}>
               {like ? (
                 <AiFillHeart className="text-red-500 text-2xl cursor-pointer" />
               ) : (
