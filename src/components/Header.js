@@ -2,19 +2,29 @@ import React from "react";
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
 import { useNavigate } from "react-router-dom";
 
+import styled from "styled-components";
 const Header = () => {
   const naviagte = useNavigate();
+  // ! windows width
+  const [width, setWidth] = React.useState(window.innerWidth);
+  React.useEffect(() => {
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
+  }, []);
   return (
     <div className="flex items-center h-24 justify-between">
       {/* logo */}
-      <div>
+      <ImageContainer>
         <img
-          src="/images/logo.png"
-          className="h-32 cursor-pointer object-contain w-32"
+          src={width > 780 ? "/images/logo.png" : "/images/mobile-netflix.png"}
+          className={
+            width > 780
+              ? "h-32 cursor-pointer object-contain w-32"
+              : "h-16 cursor-pointer object-contain w-16"
+          }
           alt=""
           onClick={() => naviagte("/")}
         />
-      </div>
+      </ImageContainer>
       {/* sections in desktop view */}
       <div className=" hidden md:inline-block md:flex space-x-4 items-center justify-around text-gray-200">
         <p className="section-items">New </p>
@@ -53,3 +63,9 @@ const Header = () => {
   );
 };
 export default Header;
+
+const ImageContainer = styled.div`
+  @media (max-width: 768px) {
+    background-image: url("/images/mobile-netflix.png");
+  }
+`;
